@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Bab",
+  "short_name": "Bab",
+  "description": "Browser Alert Block",
+
+  "version": "0.0.1.0",
+
+  "icons": {
+    "16": "assets/icon_16.png",
+    "128": "assets/icon_128.png"
+  },
+  "browser_action": {
+		"default_title": "Bab",
+		"default_icon": "assets/icon_128.png"
+	},
+  "background": {
+    "page": "index.html"
+  },
+  "permissions": [ "tabs", "notifications", "storage", "http://*/*", "https://*/*" ],
+  "content_scripts": [
+		{
+			"matches": [ "http://*/*", "https://*/*" ],
+			"js": [ "inject.js", "bab.js" ]
+		}
+	],
+  "web_accessible_resources": [ "inject.js", "bab.js" ]
+}
