@@ -17,12 +17,15 @@
   "background": {
     "page": "index.html"
   },
-  "permissions": [ "tabs", "notifications", "storage", "http://*/*", "https://*/*" ],
+  "permissions": [ "tabs", "notifications", "storage", "*://*/*" ],
   "content_scripts": [
 		{
-			"matches": [ "http://*/*", "https://*/*" ],
+			"matches": [ "*://*/*" ],
 			"js": [ "inject.js", "bab.js" ]
 		}
 	],
-  "web_accessible_resources": [ "inject.js", "bab.js" ]
+  "web_accessible_resources": [ "inject.js", "bab.js" ],
+  "externally_connectable": {
+    "matches": ["*://*.chrome.com/*"]
+  }
 }
